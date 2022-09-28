@@ -1,11 +1,11 @@
-const itemLink = document.querySelectorAll(".item");
-console.log(`Number of categories:`, itemLink.length);
+const itemLinks = document.querySelectorAll(".item");
+console.log(`Number of categories:`, itemLinks.length);
 
-const titleEl = document.querySelectorAll("h2");
-console.log(`Category:`, titleEl[0].textContent);
+itemLinks.forEach(function (itemLink) {
+  const titleEl = itemLink.firstElementChild;
+  console.log(`Category:`, titleEl.textContent);
 
-const numbOfEl = titleEl.lastElementChild;
-console.log(numbOfEl);
-
-//const numbOfEl = titleEl.querySelectorAll("li");
-//console.log(`Elements:`, numbOfEl);
+  const categoriesList = itemLink.lastElementChild;
+  const numbOfCateg = categoriesList.children;
+  console.log(`Elements:`, numbOfCateg.length);
+});
