@@ -1,11 +1,16 @@
-btnDescr.addEventListener(`click`, (event) => {
-  counterValue = counterValue - 1;
-  const valueEl = document.querySelector(`span`);
-  valueEl.textContent = counterValue;
-});
+//const inputEl = document.querySelector(`#name-input`);
+//console.log(inputEl);
 
-btnIncrem.addEventListener(`click`, (event) => {
-  counterValue += 1;
-  const valueEl = document.querySelector(`span`);
-  valueEl.textContent = counterValue;
-});
+//const outputEl = document.querySelector(`#name-output`);
+//console.log(outputEl);
+
+const refs = {
+  input: document.querySelector(`#name-input`),
+  output: document.querySelector(`#name-output`),
+};
+
+refs.input.addEventListener(`input`, onInputChange);
+
+function onInputChange(event) {
+  refs.output.textContent = event.currentTarget.value;
+}
