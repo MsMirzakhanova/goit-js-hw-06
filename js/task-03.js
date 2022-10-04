@@ -15,13 +15,15 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
-const elements = images.map((image) => {
-  const imgEl = document.createElement(`img`);
-  imgEl.src = image.url;
-  imgEl.alt = image.alt;
-  imgEl.classList.add(`img-item`);
-  return imgEl;
-});
+const markupImg = images
+  .map(
+    (img) =>
+      `<li>
+    <img class="img-item"
+    src="${img.url}" 
+    alt="${img.alt}">
+    </li>`
+  )
+  .join("");
 
-gallery.append(...elements);
-console.log(gallery);
+gallery.insertAdjacentHTML("afterbegin", markupImg);
