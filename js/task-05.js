@@ -11,14 +11,10 @@ const refs = {
 };
 
 refs.input.addEventListener(`input`, onInputChange);
-
-function onInputChange(event) {
-  refs.output.textContent = event.currentTarget.value;
-}
-
-refs.input.addEventListener(`change`, onOutputChange);
-
-function onOutputChange(event) {
-  refs.output.disabled = !event.target.checked;
-  refs.output.textContent = span.textContent;
+function onInputChange({ target: { value } }) {
+  if (!value.trim()) {
+    refs.output.textContent = "Anonymous";
+    return;
+  }
+  refs.output.textContent = value;
 }
